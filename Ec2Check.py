@@ -26,10 +26,27 @@ for sgs in client.describe_security_groups()['SecurityGroups']:
       print('IpPermissions:' ,(sgs['IpPermissions']))
       print('VPCId:' ,(sgs['VpcId']))
       print('\n')
-for vpcs in client.describe_vpcs()['Vpcs']
-      print()
-
-            
-           
-      
-            
+print("VPCs Information:")      
+for vpcs in client.describe_vpcs()['Vpcs']:
+      print('CIDR Block:' ,(vpcs['CidrBlock']))
+      print('State:' ,(vpcs['State']))
+      print('VpcId:' ,(vpcs['VpcId']))
+      print('OwnderId:' ,(vpcs['OwnerId']))
+      print('\n')
+print("Route Tables Information:")          
+for routes in client.describe_route_tables()['RouteTables']:           
+      print('Associations:' ,(routes['Associations']))
+      print('RouteTableId:' ,(routes['RouteTableId']))      
+      print('VpcId:' ,(routes['VpcId']))
+      print('OwnerId:' ,(routes['OwnerId']))
+      print('\n')
+print("NACL Information:")      
+for nacls in client.describe_network_acls()['NetworkAcls']:  
+      print('Associations:' ,(nacls['Associations']))
+      print('NetworkAclId:' ,(nacls['NetworkAclId']))
+      print('SubnetId:' ,(nacls['VpcId']))
+      print('OwnerId:' ,(nacls['OwnerId']))
+      #print('CidrBlock:' ,(nacls['CidrBlock']))
+      #print('Egress:' ,(nacls['Egress']))
+      #print('RuleAction:' ,(nacls['RuleAction']))
+      #print('RuleNumber:' ,(nacls['RuleNumber']))
